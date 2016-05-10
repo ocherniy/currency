@@ -1,7 +1,7 @@
 {
-    "name": "leshacherniy/project",
+    "name": "ocherniy/currency",
     "license": "proprietary",
-    "type": "project",
+    "type": "Currency Project",
     "autoload": {
         "psr-4": {
             "": "src/"
@@ -30,7 +30,8 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "phpunit/phpunit": "5.1.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -60,5 +61,8 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
+    },
+    "config": {
+        "bin-dir": "bin"
     }
 }

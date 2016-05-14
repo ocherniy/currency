@@ -3,6 +3,7 @@
 namespace CurrencyBundle\Controller;
 
 use CurrencyBundle\Entity\Bank;
+use CurrencyBundle\Entity\Course;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -58,6 +59,51 @@ class DefaultController extends Controller
                 'name' => $bank->getName(),
                 'logo' => $bank->getLogo(),
                 'link' => $bank->getLink(),
+            );
+        }
+
+        return new JsonResponse($results);
+    }
+
+    /**
+     * @Route("/create-course", name="createCourse")
+     */
+    // TODO: created as an example.
+    public function createCourseAction()
+    {
+        $course = new Course();
+        $course->setBank(1);
+        $course->setCurrency('EUR');
+        $course->setCost('28.78');
+        $course->setDate();
+
+        $em = $this->getDoctrine()->getManager();
+
+        // tells Doctrine you want to (eventually) save the Course (no queries yet)
+        $em->persist($course);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $em->flush();
+
+        return new JsonResponse(array('message' => 'Saved new course with id ' . $course->getId()));
+    }
+
+    /**
+     * @Route("/course", name="getCourses")
+     */
+    // TODO: created as an example.
+    public function getCoursesAction()
+    {
+        $repository = $this->getDoctrine()->getRepository('CurrencyBundle:Course');
+
+        $results = array();
+        /** @var Course $course */
+        foreach ($repository->findAll() as $course) {
+            $results[] = array(
+              'bank_id' => $course->getBank(),
+              'currency' => $course->getCurrency(),
+              'cost' => $course->getCost(),
+              'time' => $course->getDate(),
             );
         }
 

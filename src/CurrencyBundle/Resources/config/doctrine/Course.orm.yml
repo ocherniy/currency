@@ -1,0 +1,23 @@
+CurrencyBundle\Entity\Course:
+    type: entity
+    table: null
+    repositoryClass: CurrencyBundle\Repository\CourseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        bank:
+            type: integer
+        currency:
+            type: string
+            length: '255'
+        cost:
+            type: string
+            length: '255'
+        date:
+            type: string
+            length: '255'
+    lifecycleCallbacks: {  }

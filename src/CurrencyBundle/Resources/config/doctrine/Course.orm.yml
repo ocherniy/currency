@@ -1,23 +1,30 @@
 CurrencyBundle\Entity\Course:
     type: entity
-    table: null
+    table: courses
     repositoryClass: CurrencyBundle\Repository\CourseRepository
     id:
-        id:
+        course_id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
     fields:
-        bank:
+        bank_id:
             type: integer
         currency:
             type: string
-            length: '255'
+            length: '32'
         cost:
-            type: string
-            length: '255'
+            type: float
         date:
-            type: string
-            length: '255'
+            type: datetime
     lifecycleCallbacks: {  }
+
+    manyToOne:
+        bank:
+            targetEntity: CurrencyBundle\Entity\Bank
+            joinColumn:
+                name: bank_id
+                referencedColumnName: bank_id
+            cascade:
+                - persist

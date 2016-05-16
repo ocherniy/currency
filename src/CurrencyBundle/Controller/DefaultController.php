@@ -71,11 +71,14 @@ class DefaultController extends Controller
     // TODO: created as an example.
     public function createCourseAction()
     {
+        $bankRepository = $this->getDoctrine()->getRepository('CurrencyBundle:Bank');
+        $bank = $bankRepository->find(1);
+
         $course = new Course();
-        $course->setBank(1);
+        $course->setBank($bank);
         $course->setCurrency('EUR');
         $course->setCost('28.78');
-        $course->setDate();
+        $course->setDate(new \DateTime());
 
         $em = $this->getDoctrine()->getManager();
 
@@ -100,7 +103,8 @@ class DefaultController extends Controller
         /** @var Course $course */
         foreach ($repository->findAll() as $course) {
             $results[] = array(
-              'bank_id' => $course->getBank(),
+              'bank_id' => $course->getBank()->getBankId(),
+              'bank_bane' => $course->getBank()->getName(),
               'currency' => $course->getCurrency(),
               'cost' => $course->getCost(),
               'time' => $course->getDate(),

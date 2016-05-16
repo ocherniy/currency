@@ -1,6 +1,7 @@
 <?php
 
 namespace CurrencyBundle\Entity;
+use CurrencyBundle\Entity\Bank;
 
 /**
  * Course
@@ -8,14 +9,14 @@ namespace CurrencyBundle\Entity;
 class Course
 {
     /**
-     * @var int
+     * @var integer
      */
-    private $id;
+    private $course_id;
 
     /**
-     * @var int
+     * @var integer
      */
-    private $bank;
+    private $bank_id;
 
     /**
      * @var string
@@ -23,48 +24,53 @@ class Course
     private $currency;
 
     /**
-     * @var string
+     * @var float
      */
     private $cost;
 
     /**
-     * @var string
+     * @var \DateTime
      */
     private $date;
 
+    /**
+     * @var Bank
+     */
+    private $bank;
+
 
     /**
-     * Get id
+     * Get courseId
      *
-     * @return int
+     * @return integer
      */
-    public function getId()
+    public function getCourseId()
     {
-        return $this->id;
+        return $this->course_id;
     }
 
     /**
-     * Set bank
+     * Set bankId
      *
-     * @param integer $bank
+     * @param integer $bankId
      *
      * @return Course
      */
-    public function setBank($bank)
+    public function setBankId($bankId)
     {
-        $this->bank = $bank;
+        $this->bank_id = $bankId;
 
         return $this;
     }
 
     /**
-     * Get bank
+     * Get bankId
      *
-     * @return int
+     * @return integer
      */
-    public function getBank()
+    public function getBankId()
     {
-        return $this->bank;
+        return $this->bank_id;
     }
 
     /**
@@ -94,7 +100,7 @@ class Course
     /**
      * Set cost
      *
-     * @param string $cost
+     * @param float $cost
      *
      * @return Course
      */
@@ -108,7 +114,7 @@ class Course
     /**
      * Get cost
      *
-     * @return string
+     * @return float
      */
     public function getCost()
     {
@@ -118,15 +124,12 @@ class Course
     /**
      * Set date
      *
-     * @param string $date
+     * @param \DateTime $date
      *
      * @return Course
      */
-    public function setDate($date = NULL)
+    public function setDate($date)
     {
-        if (empty($date)) {
-            $date = time();
-        }
         $this->date = $date;
 
         return $this;
@@ -135,11 +138,35 @@ class Course
     /**
      * Get date
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set bank
+     *
+     * @param Bank $bank
+     *
+     * @return Course
+     */
+    public function setBank(Bank $bank = null)
+    {
+        $this->bank = $bank;
+
+        return $this;
+    }
+
+    /**
+     * Get bank
+     *
+     * @return Bank
+     */
+    public function getBank()
+    {
+        return $this->bank;
     }
 }
 

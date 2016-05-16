@@ -1,9 +1,9 @@
 CurrencyBundle\Entity\Bank:
     type: entity
-    table: null
+    table: banks
     repositoryClass: CurrencyBundle\Repository\BankRepository
     id:
-        id:
+        bank_id:
             type: integer
             id: true
             generator:

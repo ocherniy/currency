@@ -8,9 +8,9 @@ namespace CurrencyBundle\Entity;
 class Bank
 {
     /**
-     * @var int
+     * @var integer
      */
-    private $id;
+    private $bank_id;
 
     /**
      * @var string
@@ -29,13 +29,13 @@ class Bank
 
 
     /**
-     * Get id
+     * Get bankId
      *
-     * @return int
+     * @return integer
      */
-    public function getId()
+    public function getBankId()
     {
-        return $this->id;
+        return $this->bank_id;
     }
 
     /**

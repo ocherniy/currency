@@ -17,3 +17,13 @@
 
 /.idea
 /composer.lock
+/bin/doctrine
+/bin/doctrine.bat
+/bin/doctrine.php
+/bin/doctrine.php.bat
+/bin/doctrine-dbal
+/bin/doctrine-dbal.bat
+/bin/phpunit
+/bin/phpunit.bat
+/bin/security-checker
+/bin/security-checker.bat

@@ -1,0 +1,6 @@
+services:
+    app.command.course_update_command:
+        class: "CurrencyBundle\\Command\\CourseUpdateCommand"
+        tags:
+            -
+                name: "console.command"

@@ -2,6 +2,7 @@
 
 namespace CurrencyBundle;
 
+use CurrencyBundle\DependencyInjection\CurrencyExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -10,4 +11,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class CurrencyBundle extends Bundle
 {
+    /**
+     * @return CurrencyExtension
+     */
+    public function getContainerExtension()
+    {
+        return new CurrencyExtension();
+    }
 }

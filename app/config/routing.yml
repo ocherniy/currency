@@ -1,3 +1,25 @@
-app:
-    resource: "@CurrencyBundle/Controller/"
-    type:     annotation
+# TODO: Remove in the future
+api.createBank:
+    path: /api/create-bank
+    defaults:
+        _controller: "CurrencyBundle\\Controller\\Api\\BankController::createBankAction"
+    methods: [ GET ]
+
+api.getBanks:
+    path: /api/banks
+    defaults:
+        _controller: "CurrencyBundle\\Controller\\Api\\BankController::getBanksAction"
+    methods: [ GET ]
+
+# TODO: Remove in the future
+api.createCourse:
+    path: /api/create-course
+    defaults:
+        _controller: "CurrencyBundle\\Controller\\Api\\CourseController::createCourseAction"
+    methods: [ GET ]
+
+api.getCourses:
+    path: /api/courses
+    defaults:
+        _controller: "CurrencyBundle\\Controller\\Api\\CourseController::getCoursesAction"
+    methods: [ GET ]

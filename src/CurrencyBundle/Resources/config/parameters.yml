@@ -1,0 +1,8 @@
+parameters:
+    parsers:
+        privatbank:
+            name: Privatbank
+            class: "CurrencyBundle\\Parser\\PrivatbankParser"
+        kredo:
+            name: Kredo
+            class: "CurrencyBundle\\Parser\\KredoParser"

@@ -41,7 +41,7 @@ class DefaultController extends Controller
         // actually executes the queries (i.e. the INSERT query)
         $em->flush();
 
-        return new JsonResponse(array('message' => 'Saved new bank with id ' . $product->getId()));
+        return new JsonResponse(array('message' => 'Saved new bank with id ' . $product->getBankId()));
     }
 
     /**
@@ -88,7 +88,7 @@ class DefaultController extends Controller
         // actually executes the queries (i.e. the INSERT query)
         $em->flush();
 
-        return new JsonResponse(array('message' => 'Saved new course with id ' . $course->getId()));
+        return new JsonResponse(array('message' => 'Saved new course with id ' . $course->getCourseId()));
     }
 
     /**

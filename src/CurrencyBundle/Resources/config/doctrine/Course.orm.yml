@@ -18,6 +18,8 @@ CurrencyBundle\Entity\Course:
             type: float
         date:
             type: datetime
+        type:
+            type: integer
     lifecycleCallbacks: {  }
 
     manyToOne:

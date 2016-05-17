@@ -30,6 +30,7 @@ class CourseController extends Controller
         $course->setCurrency('EUR');
         $course->setCost('28.78');
         $course->setDate(new \DateTime());
+        $course->setType(1);
 
         $em = $this->getDoctrine()->getManager();
 
@@ -60,6 +61,7 @@ class CourseController extends Controller
                 'currency' => $course->getCurrency(),
                 'cost' => $course->getCost(),
                 'time' => $course->getDate(),
+                'type' => $course->getType(),
             );
         }
 

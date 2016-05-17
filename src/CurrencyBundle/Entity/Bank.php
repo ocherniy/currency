@@ -110,4 +110,3 @@ class Bank
         return $this->link;
     }
 }
-

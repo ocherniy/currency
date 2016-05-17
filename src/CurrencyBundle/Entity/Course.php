@@ -38,6 +38,11 @@ class Course
      */
     private $bank;
 
+    /**
+     * @var int
+     */
+    private $type;
+
 
     /**
      * Get courseId
@@ -168,5 +173,28 @@ class Course
     {
         return $this->bank;
     }
-}
 
+    /**
+     * Set type
+     *
+     * @param integer $type
+     *
+     * @return Course
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+}

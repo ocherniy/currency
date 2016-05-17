@@ -12,7 +12,7 @@ class PrivatbankParser {
   const PRIVATBANK_URL = 'https://privatbank.ua/';
 
   /**
-   * GoogleUrlApi key and url service.
+   * PrivatbankParser constructor.
    */
   public function __construct() {
     $this->url = self::PRIVATBANK_URL;

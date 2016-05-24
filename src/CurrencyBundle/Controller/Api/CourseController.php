@@ -3,6 +3,8 @@
 namespace CurrencyBundle\Controller\Api;
 
 use CurrencyBundle\Entity\Course;
+use CurrencyBundle\Output\Json\CourseOutput;
+use CurrencyBundle\Usecase\Course\CourseReadUsecase;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,22 +51,8 @@ class CourseController extends Controller
      */
     public function getCoursesAction(Request $request)
     {
-        $repository = $this->getDoctrine()
-                           ->getRepository('CurrencyBundle:Course');
+        $courseReadUseCase = new CourseReadUsecase($this->getDoctrine(), new CourseOutput());
 
-        $results = array();
-        /** @var Course $course */
-        foreach ($repository->findAll() as $course) {
-            $results[] = array(
-                'bank_id' => $course->getBank()->getBankId(),
-                'bank_bane' => $course->getBank()->getTitle(),
-                'currency' => $course->getCurrency(),
-                'cost' => $course->getCost(),
-                'time' => $course->getDate(),
-                'type' => $course->getType(),
-            );
-        }
-
-        return new JsonResponse($results);
+        return $courseReadUseCase->execute();
     }
 }

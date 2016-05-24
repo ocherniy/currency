@@ -5,7 +5,7 @@ namespace CurrencyBundle\Entity;
 /**
  * Bank
  */
-class Bank
+class Bank extends AbstractEntity
 {
     /**
      * @var integer

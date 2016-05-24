@@ -1,12 +1,11 @@
 <?php
 
 namespace CurrencyBundle\Entity;
-use CurrencyBundle\Entity\Bank;
 
 /**
  * Course
  */
-class Course
+class Course extends AbstractEntity
 {
     /**
      * @var integer

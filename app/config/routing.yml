@@ -1,10 +1,3 @@
-# TODO: Remove in the future
-api.createBank:
-    path: /api/create-bank
-    defaults:
-        _controller: "CurrencyBundle\\Controller\\Api\\BankController::createBankAction"
-    methods: [ GET ]
-
 api.getBanks:
     path: /api/banks
     defaults:

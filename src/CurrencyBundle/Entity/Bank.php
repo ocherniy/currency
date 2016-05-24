@@ -15,7 +15,12 @@ class Bank
     /**
      * @var string
      */
-    private $name;
+    private $unique_id;
+
+    /**
+     * @var string
+     */
+    private $title;
 
     /**
      * @var string
@@ -39,27 +44,51 @@ class Bank
     }
 
     /**
-     * Set name
+     * Set uniqueId
      *
-     * @param string $name
+     * @param string $uniqueId
      *
      * @return Bank
      */
-    public function setName($name)
+    public function setUniqueId($uniqueId)
     {
-        $this->name = $name;
+        $this->unique_id = $uniqueId;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get uniqueId
      *
      * @return string
      */
-    public function getName()
+    public function getUniqueId()
     {
-        return $this->name;
+        return $this->unique_id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Bank
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**
@@ -110,3 +139,4 @@ class Bank
         return $this->link;
     }
 }
+

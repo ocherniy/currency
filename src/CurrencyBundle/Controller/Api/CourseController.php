@@ -57,7 +57,7 @@ class CourseController extends Controller
         foreach ($repository->findAll() as $course) {
             $results[] = array(
                 'bank_id' => $course->getBank()->getBankId(),
-                'bank_bane' => $course->getBank()->getName(),
+                'bank_bane' => $course->getBank()->getTitle(),
                 'currency' => $course->getCurrency(),
                 'cost' => $course->getCost(),
                 'time' => $course->getDate(),

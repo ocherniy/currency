@@ -9,10 +9,13 @@ CurrencyBundle\Entity\Bank:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        unique_id:
             type: string
             length: '255'
             unique: true
+        title:
+            type: string
+            length: '255'
         logo:
             type: string
             length: '4096'

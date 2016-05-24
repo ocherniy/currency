@@ -1,8 +1,12 @@
 parameters:
     parsers:
         privatbank:
-            name: Privatbank
+            title: Privatbank
+            logo: "http://"
+            link: "http://"
             class: "CurrencyBundle\\Parser\\PrivatbankParser"
         kredo:
-            name: Kredo
+            title: Kredo
+            logo: "http://"
+            link: "http://"
             class: "CurrencyBundle\\Parser\\KredoParser"

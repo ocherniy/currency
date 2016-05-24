@@ -21,7 +21,7 @@ class CourseUpdateCommand extends ContainerAwareCommand
             ->setName('currency:course:update')
             ->setDescription('Update courses')
             ->addArgument(
-                'name',
+                'id',
                 InputArgument::OPTIONAL,
                 'For which bank do you want to update course?'
             );
@@ -37,15 +37,15 @@ class CourseUpdateCommand extends ContainerAwareCommand
         $container = $this->getContainer();
         $parsers = $container->getParameter('parsers');
 
-        // TODO: Implement parser executing.
-        $name = $input->getArgument('name');
-        if ($name && isset($parsers[$name])) {
-            $parserClass = $parsers[$name]['class'];
+        $id = $input->getArgument('id');
+        if ($id && isset($parsers[$id])) {
+            $parserClass = $parsers[$id]['class'];
             /** @var AbstractParser $parser */
-            $parser = new $parserClass($container->get('doctrine'), $parsers[$name]['name']);
+            $parser = new $parserClass($container->get('doctrine'), $id);
             $parser->execute();
         }
         else {
+            // TODO: Implement parser executing.
             $output->writeln(print_r($parsers, TRUE));
         }
     }

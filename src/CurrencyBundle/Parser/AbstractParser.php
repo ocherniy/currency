@@ -16,18 +16,18 @@ abstract class AbstractParser
     protected $doctrine;
 
     /** @var string */
-    protected $bankName;
+    protected $bankUniqueId;
 
     /**
      * AbstractParser constructor.
      *
      * @param Registry $doctrine
-     * @param string $bankName
+     * @param string $bankUniqueId
      */
-    public function __construct(Registry $doctrine, $bankName)
+    public function __construct(Registry $doctrine, $bankUniqueId)
     {
         $this->doctrine = $doctrine;
-        $this->bankName = $bankName;
+        $this->bankUniqueId = $bankUniqueId;
     }
 
     /**
@@ -48,7 +48,7 @@ abstract class AbstractParser
     {
         $bankRepository = $this->doctrine
                                ->getRepository('CurrencyBundle:Bank');
-        $bank = $bankRepository->findOneBy(array('name' => $this->bankName));
+        $bank = $bankRepository->findOneBy(array('unique_id' => $this->bankUniqueId));
 
         $course = new Course();
         $course->setBank($bank);

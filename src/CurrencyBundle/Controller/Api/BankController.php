@@ -22,7 +22,8 @@ class BankController extends Controller
     public function createBankAction(Request $request)
     {
         $product = new Bank();
-        $product->setName('Privatbank');
+        $product->setUniqueId('privatbank');
+        $product->setTitle('Privatbank');
         $product->setLogo('http://privatbank.ua/img/logo.png');
         $product->setLink('http://privatbank.ua/');
 
@@ -50,7 +51,7 @@ class BankController extends Controller
         /** @var Bank $bank */
         foreach ($repository->findAll() as $bank) {
             $results[] = array(
-                'name' => $bank->getName(),
+                'name' => $bank->getTitle(),
                 'logo' => $bank->getLogo(),
                 'link' => $bank->getLink(),
             );

@@ -2,6 +2,7 @@
 
 namespace CurrencyBundle\Command;
 
+use CurrencyBundle\Parser\AbstractParser;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -39,7 +40,10 @@ class CourseUpdateCommand extends ContainerAwareCommand
         // TODO: Implement parser executing.
         $name = $input->getArgument('name');
         if ($name && isset($parsers[$name])) {
-            $output->writeln(print_r($parsers[$name], TRUE));
+            $parserClass = $parsers[$name]['class'];
+            /** @var AbstractParser $parser */
+            $parser = new $parserClass($container->get('doctrine'), $parsers[$name]['name']);
+            $parser->execute();
         }
         else {
             $output->writeln(print_r($parsers, TRUE));

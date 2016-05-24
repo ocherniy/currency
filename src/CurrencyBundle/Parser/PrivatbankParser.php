@@ -1,21 +1,21 @@
 <?php
 
-namespace CurrencyBundle\Parser\PrivatbankParser;
-
-use CurrencyBundle\Entity\Course;
+namespace CurrencyBundle\Parser;
 
 /**
- * Class PrivatbankParser.
+ * Class PrivatbankParser
+ *
+ * @package CurrencyBundle\Parser
  */
-class PrivatbankParser {
+class PrivatbankParser extends AbstractParser
+{
 
-  const PRIVATBANK_URL = 'https://privatbank.ua/';
+  const SOURCE_URL = 'https://privatbank.ua/';
 
-  /**
-   * PrivatbankParser constructor.
-   */
-  public function __construct() {
-    $this->url = self::PRIVATBANK_URL;
+  protected function parseSource()
+  {
+    return array(
+        array('currency' => 'USD', 'cost' => 8.2),
+    );
   }
-
 }

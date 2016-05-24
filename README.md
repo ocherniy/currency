@@ -1,36 +1,54 @@
 Currency Project
 ===============================================================================
 
-## Install core components
+## General
+### Install core components
 ```
 $ composer install
 ```
 
-## Run PHPUnit with coverage report
+### Run application
+```
+$ php bin/console server:start
+```
+
+Or
+
+```
+$ php bin/console server:run
+```
+
+### Run PHPUnit with coverage report
 ```
 $ php vendor/bin/phpunit
 ```
 
-## Run PHPUnit without coverage report
+### Run PHPUnit without coverage report
 ```
 $ php vendor/bin/phpunit --no-coverage
 ```
 
-## Coverage report
+### Coverage report
 Coverage report is available by the following path:
 ```
 /var/report/index.html
 ```
 
-## Generating a New Doctrine Entity Stub
+## Doctrine
+### Generating a New Doctrine Entity Stub
 ```
 $ php bin/console generate:doctrine:entity
+```
+
+### Update existing Entities
+```
+$ php bin/console generate:doctrine:entities --no-backup CurrencyBundle
 ```
 
 **Useful links:**
 - http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_doctrine_entity.html
 
-## Creating the Database Tables/Schema
+### Create/Update the Database Tables/Schema
 ```
 $ php bin/console doctrine:schema:update --force
 ```

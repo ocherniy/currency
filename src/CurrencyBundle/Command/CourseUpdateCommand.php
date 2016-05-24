@@ -35,7 +35,7 @@ class CourseUpdateCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $container = $this->getContainer();
-        $parsers = $container->getParameter('parsers');
+        $parsers = $container->getParameter('banks');
 
         $id = $input->getArgument('id');
         if ($id && isset($parsers[$id])) {

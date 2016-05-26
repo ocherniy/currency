@@ -4,3 +4,8 @@ services:
         tags:
             -
                 name: "console.command"
+
+    app.cors_listener:
+        class: "CurrencyBundle\\Listener\\CorsListener"
+        tags:
+           - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }

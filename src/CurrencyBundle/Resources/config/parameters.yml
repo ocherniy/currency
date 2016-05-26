@@ -1,22 +1,22 @@
 parameters:
     banks:
         privatbank:
-            title: Privatbank1
-            logo: "http://123"
-            link: "http://123"
+            title: PrivatBank
+            logo: "https://privatbank.ua/img/logo.png"
+            link: "https://privatbank.ua/"
             class: "CurrencyBundle\\Parser\\PrivatbankParser"
-        kredo:
-            title: Kredo2
-            logo: "http://kredo.ua/logo.png"
-            link: "http://kredo.ua"
+        kredobank:
+            title: KredoBank
+            logo: "http://kredobank.com.ua/img/nd2_logo3.png"
+            link: "http://www.kredobank.com.ua/"
             class: "CurrencyBundle\\Parser\\KredoParser"
         unicredit:
-            title: Unicredit3
-            logo: "http://unicredit.ua/logo.png"
+            title: UniCredit Bank
+            logo: "https://unicredit.ua/img/logo.gif"
             link: "http://unicredit.ua/"
             class: "CurrencyBundle\\Parser\\UnicreditParser"
-        ukrsib:
-            title: Ukrsib
-            logo: "http://ukrsib.ua/logo.png"
-            link: "http://ukrsib.ua/"
+        ukrsibbank:
+            title: UkrsibBank
+            logo: "https://mp.ukrsibbank.com/ajpe/images/logo_small.jpg"
+            link: "https://ukrsibbank.com/"
             class: "CurrencyBundle\\Parser\\UnicreditParser"

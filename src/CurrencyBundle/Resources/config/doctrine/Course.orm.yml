@@ -14,7 +14,9 @@ CurrencyBundle\Entity\Course:
         currency:
             type: string
             length: '32'
-        cost:
+        cost_buy:
+            type: float
+        cost_sale:
             type: float
         date:
             type: datetime

@@ -23,6 +23,7 @@ class CourseController extends Controller
     // TODO: created as an example.
     public function createCourseAction(Request $request)
     {
+
         $bankRepository = $this->getDoctrine()
                                ->getRepository('CurrencyBundle:Bank');
         $bank = $bankRepository->find(1);
@@ -30,7 +31,8 @@ class CourseController extends Controller
         $course = new Course();
         $course->setBank($bank);
         $course->setCurrency('EUR');
-        $course->setCost('28.78');
+        $course->setCostBuy('28.78');
+        $course->setCostSale('29.78');
         $course->setDate(new \DateTime());
         $course->setType(1);
 

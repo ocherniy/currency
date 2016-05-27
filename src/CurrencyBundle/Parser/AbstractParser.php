@@ -18,6 +18,11 @@ abstract class AbstractParser
     /** @var string */
     protected $bankUniqueId;
 
+    const CURRENCY_TYPE_CASH = 1;
+    const CURRENCY_TYPE_CARD = 2;
+    const CURRENCY_USD = 'USD';
+    const CURRENCY_EUR = 'EUR';
+
     /**
      * AbstractParser constructor.
      *
@@ -53,9 +58,10 @@ abstract class AbstractParser
         $course = new Course();
         $course->setBank($bank);
         $course->setCurrency($courseData['currency']);
-        $course->setCost($courseData['cost']);
+        $course->setCostBuy($courseData['cost_buy']);
+        $course->setCostSale($courseData['cost_sale']);
         $course->setDate(new \DateTime());
-        $course->setType(1);
+        $course->setType($courseData['type']);
 
         $em = $this->doctrine->getManager();
 

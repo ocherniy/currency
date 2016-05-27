@@ -139,4 +139,3 @@ class Bank extends AbstractEntity
         return $this->link;
     }
 }
-

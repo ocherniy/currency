@@ -5,14 +5,14 @@ use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
- * Class PrivatbankParser
+ * Class UnicreditParser
  *
  * @package CurrencyBundle\Parser
  */
-class PrivatbankParser extends AbstractParser
+class UnicreditParser extends AbstractParser
 {
 
-  const SOURCE_URL = 'https://privatbank.ua/';
+  const SOURCE_URL = 'https://ru.unicredit.ua/';
 
   protected function parseSource()
   {
@@ -26,10 +26,10 @@ class PrivatbankParser extends AbstractParser
       $response = (string) $response;
       $crawler = new Crawler($response);
 
-      $eur_buy = $crawler->filter('#selectByPB tr td')->eq(1)->html();
-      $eur_sale = $crawler->filter('#selectByPB tr td')->eq(2)->html();
-      $usd_buy = $crawler->filter('#selectByPB tr td')->eq(4)->html();
-      $usd_sale = $crawler->filter('#selectByPB tr td')->eq(5)->html();
+      $usd_buy = $crawler->filter('#currency .rate tr .no')->eq(0)->html();
+      $usd_sale = $crawler->filter('#currency .rate tr .no')->eq(1)->html();
+      $eur_buy = $crawler->filter('#currency .rate tr .no')->eq(2)->html();
+      $eur_sale = $crawler->filter('#currency .rate tr .no')->eq(3)->html();
 
       if (!empty($usd_buy) && !empty($usd_sale)) {
         $data[] = array(

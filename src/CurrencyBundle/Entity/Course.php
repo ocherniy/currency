@@ -196,4 +196,62 @@ class Course extends AbstractEntity
     {
         return $this->type;
     }
+    /**
+     * @var float
+     */
+    private $cost_buy;
+
+    /**
+     * @var float
+     */
+    private $cost_sale;
+
+
+    /**
+     * Set costBuy
+     *
+     * @param float $costBuy
+     *
+     * @return Course
+     */
+    public function setCostBuy($costBuy)
+    {
+        $this->cost_buy = $costBuy;
+
+        return $this;
+    }
+
+    /**
+     * Get costBuy
+     *
+     * @return float
+     */
+    public function getCostBuy()
+    {
+        return $this->cost_buy;
+    }
+
+    /**
+     * Set costSale
+     *
+     * @param float $costSale
+     *
+     * @return Course
+     */
+    public function setCostSale($costSale)
+    {
+        $this->cost_sale = $costSale;
+
+        return $this;
+    }
+
+    /**
+     * Get costSale
+     *
+     * @return float
+     */
+    public function getCostSale()
+    {
+        return $this->cost_sale;
+    }
 }

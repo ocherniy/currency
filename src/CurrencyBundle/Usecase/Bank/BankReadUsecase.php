@@ -34,7 +34,7 @@ class BankReadUsecase extends AbstractUsecase
     public function execute()
     {
         $repository = $this->doctrine->getRepository('CurrencyBundle:Bank');
-        $banks = $repository->findAll();
+        $banks = $repository->findBy(array('status' => 1));
 
         return $this->output->execute($banks);
     }

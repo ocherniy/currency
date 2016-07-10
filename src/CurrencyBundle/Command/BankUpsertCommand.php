@@ -46,6 +46,7 @@ class BankUpsertCommand extends ContainerAwareCommand
       $bankEntity->setTitle($bank['title']);
       $bankEntity->setLogo($bank['logo']);
       $bankEntity->setLink($bank['link']);
+      $bankEntity->setStatus($bank['status']);
 
       $em = $doctrine->getManager();
 

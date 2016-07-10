@@ -22,5 +22,5 @@ parameters:
             title: UkrsibBank
             logo: "https://mp.ukrsibbank.com/ajpe/images/logo_small.jpg"
             link: "https://ukrsibbank.com/"
-            class: "CurrencyBundle\\Parser\\UnicreditParser"
+            class: "CurrencyBundle\\Parser\\UkrsibParser"
             status: 1

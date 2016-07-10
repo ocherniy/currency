@@ -51,25 +51,27 @@ abstract class AbstractParser
      */
     protected function insertCourse(array $courseData)
     {
-        $bankRepository = $this->doctrine
-                               ->getRepository('CurrencyBundle:Bank');
-        $bank = $bankRepository->findOneBy(array('unique_id' => $this->bankUniqueId));
+        if (is_numeric($courseData['cost_buy']) && is_numeric($courseData['cost_sale'])) {
+            $bankRepository = $this->doctrine
+              ->getRepository('CurrencyBundle:Bank');
+            $bank = $bankRepository->findOneBy(array('unique_id' => $this->bankUniqueId));
 
-        $course = new Course();
-        $course->setBank($bank);
-        $course->setCurrency($courseData['currency']);
-        $course->setCostBuy($courseData['cost_buy']);
-        $course->setCostSale($courseData['cost_sale']);
-        $course->setDate(new \DateTime());
-        $course->setType($courseData['type']);
+            $course = new Course();
+            $course->setBank($bank);
+            $course->setCurrency($courseData['currency']);
+            $course->setCostBuy($courseData['cost_buy']);
+            $course->setCostSale($courseData['cost_sale']);
+            $course->setDate(new \DateTime());
+            $course->setType($courseData['type']);
 
-        $em = $this->doctrine->getManager();
+            $em = $this->doctrine->getManager();
 
-        // tells Doctrine you want to (eventually) save the Course (no queries yet)
-        $em->persist($course);
+            // tells Doctrine you want to (eventually) save the Course (no queries yet)
+            $em->persist($course);
 
-        // actually executes the queries (i.e. the INSERT query)
-        $em->flush();
+            // actually executes the queries (i.e. the INSERT query)
+            $em->flush();
+        }
     }
 
     /**

@@ -45,8 +45,12 @@ class CourseUpdateCommand extends ContainerAwareCommand
             $parser->execute();
         }
         else {
-            // TODO: Implement parser executing.
-            $output->writeln(print_r($parsers, TRUE));
+            foreach ($parsers as $id => $parser) {
+                $parserClass = $parsers[$id]['class'];
+                /** @var AbstractParser $parser */
+                $parser = new $parserClass($container->get('doctrine'), $id);
+                $parser->execute();
+            }
         }
     }
 }
